@@ -19,13 +19,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 export type Car = {
   id: string;
@@ -162,17 +156,13 @@ export function BookingModal({ car, isOpen, onClose }: BookingModalProps) {
               </div>
 
               <div className="grid gap-2">
-                <Label>Pickup Location</Label>
-                <Select required>
-                  <SelectTrigger className="border-neutral-300 focus:ring-emerald-600">
-                    <SelectValue placeholder="Select location" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="airport">Airport Terminal</SelectItem>
-                    <SelectItem value="downtown">Downtown Office</SelectItem>
-                    <SelectItem value="railway">Railway Station</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="location">Enter Your Full Address</Label>
+                <Textarea
+                  id="location"
+                  placeholder="Enter your complete pickup address..."
+                  required
+                  className="resize-none border-neutral-300 focus-visible:ring-emerald-600 min-h-[100px]"
+                />
               </div>
             </div>
 
